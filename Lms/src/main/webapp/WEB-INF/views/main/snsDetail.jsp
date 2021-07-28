@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,8 +50,31 @@
 			<div id="content">
 
 				<jsp:include page="topbar.jsp" />
-				<jsp:include page="boardList.jsp" />
+				<jsp:include page="snsReply.jsp" />
 				<!-- 몸체 -->
+
+
+				<div class="card shadow mb-4">
+					<div class="card-header py-3">
+						<h6 class="m-0 font-weight-bold text-primary">${list[0].sTitle }</h6>
+					</div>
+					<div class="card-body">
+						<p>작성자 : ${list[0].sWriter } &nbsp;&nbsp; | &nbsp;&nbsp; 작성일자 : ${list[0].sDate }</p>
+						<p>${list[0].sContents }</p>
+					</div>
+				</div>
+				<div class="card shadow mb-4">
+					<div class="card-header py-3">
+						<h6 class="m-0 text-primary">댓글</h6>
+					</div>
+					<c:forEach var="sns" items="${list }">
+						<div class="card-body">
+							<p>작성자 : ${list[0].cName } &nbsp;&nbsp; | &nbsp;&nbsp; 작성일자 : ${list[0].cDate }</p>
+							<p>${list[0].cSubject}</p>
+						</div>
+					</c:forEach>
+				</div>
+
 				<jsp:include page="footer.jsp" />
 
 			</div>

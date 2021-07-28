@@ -14,7 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 import co.micol.Lms.command.Command;
 import co.micol.Lms.command.Login;
 import co.micol.Lms.command.LoginForm;
+import co.micol.Lms.command.Logout;
 import co.micol.Lms.command.Main;
+import co.micol.Lms.command.SearchSns;
+import co.micol.Lms.command.SnsList;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -23,18 +26,18 @@ public class FrontController extends HttpServlet {
 	
     public FrontController() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	public void init(ServletConfig config) throws ServletException {
-		// TODO Auto-generated method stub
 		map.put("/main.do", new Main());
 		map.put("/loginForm.do", new LoginForm());
 		map.put("/login.do", new Login());
+		map.put("/logout.do", new Logout());
+		map.put("/snsList.do", new SnsList());
+		map.put("/searchSns.do", new SearchSns());
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
 		String uri = request.getRequestURI();
 		String contextPath = request.getContextPath();
