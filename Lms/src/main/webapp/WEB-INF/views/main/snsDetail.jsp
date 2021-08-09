@@ -70,11 +70,19 @@
 						<div class="card-header py-3">
 							<h6 class="m-0 text-primary">댓글</h6>
 						</div>
+<<<<<<< HEAD
+						<c:forEach var="sns" items="${list }">
+							<div class="card-body">
+								<p>작성자 : ${list[0].cName } &nbsp;&nbsp; | &nbsp;&nbsp; 작성일자
+									: ${list[0].cDate }</p>
+								<p>${list[0].cSubject}</p>
+=======
 						<c:forEach var="sns" items="${list}">
 							<div class="card-body">
 								<p>작성자 : ${sns.cName} &nbsp;&nbsp; | &nbsp;&nbsp; 작성일자
 									: ${sns.cDate}</p>
 								<p>${sns.cSubject}</p>
+>>>>>>> refs/remotes/origin/main
 							</div>
 						</c:forEach>
 					</div>

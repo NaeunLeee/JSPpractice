@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.micol.prj.board.service.BoardMapper">
+	<!-- 미구현된 sql을 적용해주면 됨 -->
+	<select id="snsSelectList" resultType="SnsVO">
+		select * from sns
+	</select>
+	
+	<resultMap type="co.micol.prj.board.vo.SnsVO" id="SnsVoMap">
+		<id property="sNo" column="sNo" />
+		<result property="cNo" column="kk"/>
+	</resultMap>
+	
+	
+	<select id="snsSelect" resultMap="SnsVoMap">
+		select a.*, b.cno as kk, b.cname, b.cdate, b.csubject 
+		from sns a left outer join comments b 
+		on (a.sno = b.sno) 
+		where a.sno = #{sNo}
+	</select>
+	
+	<select id="commentsSelect" resultType="CommentsVO">
+		select * from comments where cno = #{cNo}
+	</select>
+	
+</mapper>

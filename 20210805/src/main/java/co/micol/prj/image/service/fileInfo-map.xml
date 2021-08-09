@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.micol.prj.image.service.FileInfoMapper">
+
+	<select id="fileSelectList"
+		resultType="co.micol.prj.image.vo.FileInformationVO">
+		select * from fileinformation order by num desc
+	</select>
+
+	<select id="fileSelect"
+		resultType="co.micol.prj.image.vo.FileInformationVO">
+		select * from fileinformation where num = #{key}
+	</select>
+
+	<insert id="fileInsert">
+		insert into fileinformation 
+		values (F_SEQ.nextval, #{subject}, #{fileName}, #{downFile})
+	</insert>
+
+	<update id="fileUpdate">
+
+	</update>
+
+	<delete id="fileDelete">
+		delete from fileinformation where num = #{key}
+	</delete>
+
+</mapper>
